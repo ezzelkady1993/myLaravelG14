@@ -23,6 +23,16 @@
                 </ul>
             </div>
         @endif
+
+        @if (session()->has('Message-success'))
+            <div class="alert alert-success">
+                {{ session()->get('Message-success') }}
+            </div>
+        @elseif(session()->has('Message-error'))
+            <div class="alert alert-danger">
+                {{ session()->get('Message-error') }}
+            </div>
+        @endif
         <form action="<?php echo url('/blogs/store'); ?>" method="post" enctype="multipart/form-data">
 
             @csrf
@@ -39,10 +49,10 @@
                     placeholder="Enter content"><?php echo old('content'); ?></textarea>
             </div>
 
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <label for="exampleInputPassword">Image</label>
                 <input type="file" name="image" value="<?php echo old('image'); ?>">
-            </div>
+            </div> --}}
 
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

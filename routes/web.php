@@ -20,3 +20,4 @@ Route::get('/', function () {
 
 Route::get('blogs/create',[BlogController::class,'create']);
 Route::post('blogs/store',[BlogController::class,'store']);
+Route::get('blogs',[BlogController::class,'index']);
